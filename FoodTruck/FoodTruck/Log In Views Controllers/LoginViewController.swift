@@ -10,17 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-       var passwordField: PasswordField?
-        
+    // MARK: - Outlets
+
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view.
     //        passwordField?.setup()
-            
         }
-        
-        @IBAction func passwordFieldChanged(_ sender: PasswordField) {
-            print("Password: \(sender.password), Password Strength: \(sender.passwordStrength)")
-        }
-
 }

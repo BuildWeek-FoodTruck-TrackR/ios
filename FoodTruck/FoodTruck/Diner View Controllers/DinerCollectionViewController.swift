@@ -12,6 +12,14 @@ private let reuseIdentifier = "Cell"
 
 class DinerCollectionViewController: UICollectionViewController {
 
+    // MARK: - Outlets
+    @IBOutlet var refreshButton: UIBarButtonItem!
+
+    // MARK: - Actions
+
+    @IBAction func refreshButtonTapped(_ sender: UIBarButtonItem) {
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
