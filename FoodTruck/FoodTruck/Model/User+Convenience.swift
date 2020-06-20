@@ -26,7 +26,6 @@ extension User {
         self.password = password
     }
 
-
     @discardableResult convenience init?( userRepresentation: UserRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(username:  userRepresentation.username,
                   password:  userRepresentation.password,
