@@ -1,20 +1,21 @@
 //
-//  OperatorViewController.swift
+//  FoodTruckDetailViewController.swift
 //  FoodTruck
 //
-//  Created by Kevin Stewart on 6/20/20.
+//  Created by Kevin Stewart on 6/22/20.
 //  Copyright © 2020 Kevin Stewart. All rights reserved.
 //
 
 import UIKit
 
-class OperatorViewController: UIViewController {
+class FoodTruckDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
 
     /*
     // MARK: - Navigation

@@ -144,9 +144,12 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyM-8G-mcP">
-                                        <rect key="frame" x="115" y="412" width="125" height="48"/>
+                                        <rect key="frame" x="96.5" y="412" width="162" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Add truck"/>
+                                        <state key="normal" title="Set up menu"/>
+                                        <connections>
+                                            <segue destination="0vt-Gj-YqT" kind="show" identifier="SetUpMenuSegue" id="4Dg-S0-afj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -168,6 +171,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsa-Ld-nVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="728.98550724637687" y="112.5"/>
+        </scene>
+        <!--Set up menu-->
+        <scene sceneID="izb-DB-goB">
+            <objects>
+                <viewController id="0vt-Gj-YqT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2hn-kg-2lq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="8Bl-v5-D4b"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Set up menu" id="6v7-0t-jKC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p1N-s7-AHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486" y="113"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MZc-de-QaT">
