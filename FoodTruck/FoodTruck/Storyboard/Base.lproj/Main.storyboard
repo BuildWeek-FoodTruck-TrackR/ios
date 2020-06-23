@@ -90,6 +90,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <state key="normal" title="Continue"/>
                                         <connections>
+                                            <action selector="continueButtonTapped:" destination="5BL-gK-CzD" eventType="touchUpInside" id="TKv-tD-kDZ"/>
                                             <segue destination="k4N-34-AOX" kind="show" identifier="OperatorOrDinerSegue" id="iPg-3U-KDy"/>
                                         </connections>
                                     </button>
@@ -163,6 +164,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <state key="normal" title="Continue"/>
                                         <connections>
+                                            <action selector="continueButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jb2-Tr-0qI"/>
                                             <segue destination="5BL-gK-CzD" kind="show" identifier="SignUpToLogInSegue" id="ZFX-4v-Oel"/>
                                         </connections>
                                     </button>
@@ -179,6 +181,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Otx-jV-OpI"/>
+                    <connections>
+                        <outlet property="continueButton" destination="er7-dg-IqQ" id="qkV-kt-PmJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -260,6 +265,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="p19-Th-lrl"/>
+        <segue reference="ZFX-4v-Oel"/>
     </inferredMetricsTieBreakers>
 </document>

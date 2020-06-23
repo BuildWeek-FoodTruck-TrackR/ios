@@ -10,6 +10,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    var user: User? {
+        didSet {
+            updateViews()
+        }
+    }
+
     // MARK: - Outlets
 
         override func viewDidLoad() {
@@ -17,4 +23,10 @@ class LoginViewController: UIViewController {
             // Do any additional setup after loading the view.
     //        passwordField?.setup()
         }
+
+    func updateViews() {
+    }
+
+    @IBAction func continueButtonTapped(_ sender: UIButton) {
+    }
 }

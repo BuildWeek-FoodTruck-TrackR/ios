@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1100E40024A19C31009D1A1D /* SearchFoodTruckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100E3FF24A19C31009D1A1D /* SearchFoodTruckTableViewController.swift */; };
+		1100E40224A19C50009D1A1D /* FoodTruckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100E40124A19C50009D1A1D /* FoodTruckTableViewCell.swift */; };
+		1100E40424A19C7D009D1A1D /* FoodTruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100E40324A19C7D009D1A1D /* FoodTruckDetailViewController.swift */; };
 		114A0489249C524A00F22F8F /* Pods_FoodTruck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10172E8189E912BC8CF901BF /* Pods_FoodTruck.framework */; };
 		114A048A249C524A00F22F8F /* Pods_FoodTruck.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10172E8189E912BC8CF901BF /* Pods_FoodTruck.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		114A048F249D953F00F22F8F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A048E249D953F00F22F8F /* LoginViewController.swift */; };
@@ -15,8 +18,6 @@
 		114A0497249DB35E00F22F8F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A0496249DB35E00F22F8F /* SignInViewController.swift */; };
 		114A0499249DB37400F22F8F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A0498249DB37300F22F8F /* WelcomeViewController.swift */; };
 		114A049B249DB38B00F22F8F /* DinerOrOperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A049A249DB38B00F22F8F /* DinerOrOperatorViewController.swift */; };
-		114A049E249EBEF700F22F8F /* DinerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A049D249EBEF700F22F8F /* DinerCollectionViewController.swift */; };
-		114A04A0249EBF4600F22F8F /* DinerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A049F249EBF4600F22F8F /* DinerCollectionViewCell.swift */; };
 		114A04A3249ED52F00F22F8F /* OperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114A04A2249ED52F00F22F8F /* OperatorViewController.swift */; };
 		11E9835D249B01A5001288C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9835C249B01A5001288C5 /* AppDelegate.swift */; };
 		11E9835F249B01A5001288C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9835E249B01A5001288C5 /* SceneDelegate.swift */; };
@@ -67,14 +68,15 @@
 
 /* Begin PBXFileReference section */
 		10172E8189E912BC8CF901BF /* Pods_FoodTruck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTruck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1100E3FF24A19C31009D1A1D /* SearchFoodTruckTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodTruckTableViewController.swift; sourceTree = "<group>"; };
+		1100E40124A19C50009D1A1D /* FoodTruckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckTableViewCell.swift; sourceTree = "<group>"; };
+		1100E40324A19C7D009D1A1D /* FoodTruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckDetailViewController.swift; sourceTree = "<group>"; };
 		114A048E249D953F00F22F8F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		114A0492249DA2B600F22F8F /* Operator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Operator.storyboard; sourceTree = "<group>"; };
 		114A0494249DA2C300F22F8F /* Diner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Diner.storyboard; sourceTree = "<group>"; };
 		114A0496249DB35E00F22F8F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		114A0498249DB37300F22F8F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		114A049A249DB38B00F22F8F /* DinerOrOperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerOrOperatorViewController.swift; sourceTree = "<group>"; };
-		114A049D249EBEF700F22F8F /* DinerCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerCollectionViewController.swift; sourceTree = "<group>"; };
-		114A049F249EBF4600F22F8F /* DinerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerCollectionViewCell.swift; sourceTree = "<group>"; };
 		114A04A2249ED52F00F22F8F /* OperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorViewController.swift; sourceTree = "<group>"; };
 		11E98359249B01A4001288C5 /* FoodTruck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTruck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E9835C249B01A5001288C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,8 +148,9 @@
 		114A049C249EBEC300F22F8F /* Diner View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				114A049D249EBEF700F22F8F /* DinerCollectionViewController.swift */,
-				114A049F249EBF4600F22F8F /* DinerCollectionViewCell.swift */,
+				1100E3FF24A19C31009D1A1D /* SearchFoodTruckTableViewController.swift */,
+				1100E40124A19C50009D1A1D /* FoodTruckTableViewCell.swift */,
+				1100E40324A19C7D009D1A1D /* FoodTruckDetailViewController.swift */,
 			);
 			path = "Diner View Controllers";
 			sourceTree = "<group>";
@@ -495,19 +498,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E98361249B01A5001288C5 /* ViewController.swift in Sources */,
+				1100E40224A19C50009D1A1D /* FoodTruckTableViewCell.swift in Sources */,
 				114A0499249DB37400F22F8F /* WelcomeViewController.swift in Sources */,
 				11E9835D249B01A5001288C5 /* AppDelegate.swift in Sources */,
-				114A04A0249EBF4600F22F8F /* DinerCollectionViewCell.swift in Sources */,
 				114A04A3249ED52F00F22F8F /* OperatorViewController.swift in Sources */,
 				E125BEAB249C5325001FF823 /* UserRepresentation.swift in Sources */,
 				E125BEAD249C53CA001FF823 /* CoreDataStack.swift in Sources */,
 				114A049B249DB38B00F22F8F /* DinerOrOperatorViewController.swift in Sources */,
 				114A048F249D953F00F22F8F /* LoginViewController.swift in Sources */,
 				114A0497249DB35E00F22F8F /* SignInViewController.swift in Sources */,
+				1100E40024A19C31009D1A1D /* SearchFoodTruckTableViewController.swift in Sources */,
 				11E9835F249B01A5001288C5 /* SceneDelegate.swift in Sources */,
 				11E98367249B01A5001288C5 /* FoodTruck.xcdatamodeld in Sources */,
+				1100E40424A19C7D009D1A1D /* FoodTruckDetailViewController.swift in Sources */,
 				E125BEB0249C56BC001FF823 /* User+Convenience.swift in Sources */,
-				114A049E249EBEF700F22F8F /* DinerCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
