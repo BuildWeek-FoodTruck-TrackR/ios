@@ -67,7 +67,6 @@ class UserController {
         }.resume()
     }
 
-
     // Send Task Representation to Firebase!
     func sendTaskToServer(diner: Diner, completion: @escaping CompletionHandler = { _ in }) {
 
