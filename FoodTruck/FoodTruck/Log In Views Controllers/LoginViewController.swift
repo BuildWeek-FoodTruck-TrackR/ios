@@ -10,11 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    var user: User? {
-        didSet {
-            updateViews()
-        }
-    }
+//    var user: User? {
+//        didSet {
+//            updateViews()
+//        }
+//    }
 
     // MARK: - Outlets
 
