@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct OperatorRepresentation: Codable {
+    var identifier: String
+    var username: String
+    var password: String
+    var trucksOwned: String?
+}
