@@ -30,15 +30,9 @@
 		5CDBD3DE33F3B8A02F76490F /* Pods_FoodTruckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 744E124459CBEECCA1AC513E /* Pods_FoodTruckTests.framework */; };
 		E1067F4724A2F946002BE0A2 /* FoodTruck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1067F4524A2F946002BE0A2 /* FoodTruck.xcdatamodeld */; };
 		E125BEAD249C53CA001FF823 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125BEAC249C53CA001FF823 /* CoreDataStack.swift */; };
-		E162705524A2D35E0042E4FE /* Operator+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162705424A2D35E0042E4FE /* Operator+Convenience.swift */; };
 		E162705824A2D7BB0042E4FE /* MenuRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162705724A2D7BB0042E4FE /* MenuRepresentation.swift */; };
 		E162705A24A2D7DA0042E4FE /* Menu+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162705924A2D7DA0042E4FE /* Menu+Convenience.swift */; };
-		E162705D24A2D8070042E4FE /* TruckRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162705C24A2D8070042E4FE /* TruckRepresentation.swift */; };
-		E162705F24A2D83E0042E4FE /* Truck+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162705E24A2D83E0042E4FE /* Truck+Convenience.swift */; };
-		E19208AE24A1B6C70055517E /* OperatorRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19208AD24A1B6C70055517E /* OperatorRepresentation.swift */; };
 		E192DBEC249CEE4A0076AFE6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192DBEB249CEE4A0076AFE6 /* UserController.swift */; };
-		E19C3C5D24A1A3AF0092878F /* DinerRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C3C5C24A1A3AF0092878F /* DinerRepresentation.swift */; };
-		E19C3C5F24A1A4460092878F /* Diner+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C3C5E24A1A4460092878F /* Diner+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,15 +101,9 @@
 		BC32D9A2FE7BF614C279D431 /* Pods_FoodTruck_FoodTruckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTruck_FoodTruckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1067F4624A2F946002BE0A2 /* FoodTruck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodTruck.xcdatamodel; sourceTree = "<group>"; };
 		E125BEAC249C53CA001FF823 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		E162705424A2D35E0042E4FE /* Operator+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Operator+Convenience.swift"; sourceTree = "<group>"; };
 		E162705724A2D7BB0042E4FE /* MenuRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRepresentation.swift; sourceTree = "<group>"; };
 		E162705924A2D7DA0042E4FE /* Menu+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+Convenience.swift"; sourceTree = "<group>"; };
-		E162705C24A2D8070042E4FE /* TruckRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckRepresentation.swift; sourceTree = "<group>"; };
-		E162705E24A2D83E0042E4FE /* Truck+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Truck+Convenience.swift"; sourceTree = "<group>"; };
-		E19208AD24A1B6C70055517E /* OperatorRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorRepresentation.swift; sourceTree = "<group>"; };
 		E192DBEB249CEE4A0076AFE6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
-		E19C3C5C24A1A3AF0092878F /* DinerRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerRepresentation.swift; sourceTree = "<group>"; };
-		E19C3C5E24A1A4460092878F /* Diner+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diner+Convenience.swift"; sourceTree = "<group>"; };
 		ECDB61DEC33C7167212C42B3 /* Pods-FoodTruck-FoodTruckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTruck-FoodTruckUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodTruck-FoodTruckUITests/Pods-FoodTruck-FoodTruckUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,10 +266,7 @@
 			children = (
 				E1067F4524A2F946002BE0A2 /* FoodTruck.xcdatamodeld */,
 				E125BEAC249C53CA001FF823 /* CoreDataStack.swift */,
-				E162705B24A2D7E50042E4FE /* Truck Model */,
 				E162705624A2D7610042E4FE /* Menu Model */,
-				E19208AC24A1B6790055517E /* Operator Model  */,
-				E19C3C6024A1A72B0092878F /* Diner Model */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,33 +289,6 @@
 				E162705924A2D7DA0042E4FE /* Menu+Convenience.swift */,
 			);
 			path = "Menu Model";
-			sourceTree = "<group>";
-		};
-		E162705B24A2D7E50042E4FE /* Truck Model */ = {
-			isa = PBXGroup;
-			children = (
-				E162705C24A2D8070042E4FE /* TruckRepresentation.swift */,
-				E162705E24A2D83E0042E4FE /* Truck+Convenience.swift */,
-			);
-			path = "Truck Model";
-			sourceTree = "<group>";
-		};
-		E19208AC24A1B6790055517E /* Operator Model  */ = {
-			isa = PBXGroup;
-			children = (
-				E19208AD24A1B6C70055517E /* OperatorRepresentation.swift */,
-				E162705424A2D35E0042E4FE /* Operator+Convenience.swift */,
-			);
-			path = "Operator Model ";
-			sourceTree = "<group>";
-		};
-		E19C3C6024A1A72B0092878F /* Diner Model */ = {
-			isa = PBXGroup;
-			children = (
-				E19C3C5C24A1A3AF0092878F /* DinerRepresentation.swift */,
-				E19C3C5E24A1A4460092878F /* Diner+Convenience.swift */,
-			);
-			path = "Diner Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,17 +520,15 @@
 				1100E40224A19C50009D1A1D /* FoodTruckTableViewCell.swift in Sources */,
 				114A0499249DB37400F22F8F /* WelcomeViewController.swift in Sources */,
 				11E9835D249B01A5001288C5 /* AppDelegate.swift in Sources */,
+				1100E41824A2E6BC009D1A1D /* FoodTruck.xcdatamodeld in Sources */,
+				1100E41424A2E699009D1A1D /* Diner+Convenience.swift in Sources */,
 				E192DBEC249CEE4A0076AFE6 /* UserController.swift in Sources */,
-				E162705524A2D35E0042E4FE /* Operator+Convenience.swift in Sources */,
-				E19C3C5D24A1A3AF0092878F /* DinerRepresentation.swift in Sources */,
-				E162705D24A2D8070042E4FE /* TruckRepresentation.swift in Sources */,
 				E125BEAD249C53CA001FF823 /* CoreDataStack.swift in Sources */,
 				114A049B249DB38B00F22F8F /* DinerOrOperatorViewController.swift in Sources */,
 				114A048F249D953F00F22F8F /* LoginViewController.swift in Sources */,
 				114A0497249DB35E00F22F8F /* SignInViewController.swift in Sources */,
 				1100E40024A19C31009D1A1D /* SearchFoodTruckTableViewController.swift in Sources */,
 				11E9835F249B01A5001288C5 /* SceneDelegate.swift in Sources */,
-				E162705F24A2D83E0042E4FE /* Truck+Convenience.swift in Sources */,
 				1100E40424A19C7D009D1A1D /* FoodTruckDetailViewController.swift in Sources */,
 				E162705824A2D7BB0042E4FE /* MenuRepresentation.swift in Sources */,
 				E19C3C5F24A1A4460092878F /* Diner+Convenience.swift in Sources */,
