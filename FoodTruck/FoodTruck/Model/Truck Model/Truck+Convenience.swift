@@ -1,5 +1,5 @@
 //
-//  Diner+Convenience.swift
+//  Truck+Convenience.swift
 //  FoodTruck
 //
 //  Created by Sammy Alvarado on 6/23/20.
