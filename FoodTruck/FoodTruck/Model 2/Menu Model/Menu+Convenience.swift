@@ -22,29 +22,26 @@ extension Menu {
     }
 
     @discardableResult convenience init(identifier: UUID = UUID(),
-                                        itemPrice: Double,
+                                        itemPrice: String,
                                         itemPhotos: String,
                                         itemName: String?,
-                                        itemDescription: String,
-                                        customerRatings: Double,
-                                        customerRatingAvg: Double,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.itemPrice = itemPrice
         self.itemPhotos = itemPhotos
-        self.itemName = itemName
-        self.itemDescription = itemDescription
-        self.customerRatings = customerRatings
-        self.customerRatingAvg = customerRatingAvg
+        self.password = password
+        self.trucksOwned = trucksOwned
     }
 
 
     // Initializer to convert representation into Task
-//    @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-//
-//        self.init(itemPrice: menuRepresentation.itemPrice,
-//                  itemPhotos: menuRepresentation.itemPhotos,
-//                  trucksOwned: menuRepresentation.trucksOwned,
-//                  context: context)
-//    }
+    @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        guard let identifier = UUID(uuidString: menuRepresentation.identifier) else { return nil }
+
+        self.init(identifier: identifier,
+                  itemPrice: menuRepresentation.itemPrice,
+                  itemPhotos: menuRepresentation.itemPhotos,
+                  trucksOwned: menuRepresentation.trucksOwned,
+                  context: context)
+    }
 }
