@@ -37,6 +37,11 @@
 		333C9F520F3471C67F1AC02E /* Pods_FoodTruck_FoodTruckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC32D9A2FE7BF614C279D431 /* Pods_FoodTruck_FoodTruckUITests.framework */; };
 		5CDBD3DE33F3B8A02F76490F /* Pods_FoodTruckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 744E124459CBEECCA1AC513E /* Pods_FoodTruckTests.framework */; };
 		E125BEAD249C53CA001FF823 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125BEAC249C53CA001FF823 /* CoreDataStack.swift */; };
+		E19208AE24A1B6C70055517E /* OperatorRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19208AD24A1B6C70055517E /* OperatorRepresentation.swift */; };
+		E19208B024A1B7EE0055517E /* Diner+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19208AF24A1B7EE0055517E /* Diner+Convenience.swift */; };
+		E192DBEC249CEE4A0076AFE6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192DBEB249CEE4A0076AFE6 /* UserController.swift */; };
+		E19C3C5D24A1A3AF0092878F /* DinerRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C3C5C24A1A3AF0092878F /* DinerRepresentation.swift */; };
+		E19C3C5F24A1A4460092878F /* Diner+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C3C5E24A1A4460092878F /* Diner+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +116,11 @@
 		7678D0B9075A92F1C83FD053 /* Pods-FoodTruckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTruckTests.release.xcconfig"; path = "Target Support Files/Pods-FoodTruckTests/Pods-FoodTruckTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC32D9A2FE7BF614C279D431 /* Pods_FoodTruck_FoodTruckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTruck_FoodTruckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E125BEAC249C53CA001FF823 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E19208AD24A1B6C70055517E /* OperatorRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorRepresentation.swift; sourceTree = "<group>"; };
+		E19208AF24A1B7EE0055517E /* Diner+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diner+Convenience.swift"; sourceTree = "<group>"; };
+		E192DBEB249CEE4A0076AFE6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		E19C3C5C24A1A3AF0092878F /* DinerRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerRepresentation.swift; sourceTree = "<group>"; };
+		E19C3C5E24A1A4460092878F /* Diner+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diner+Convenience.swift"; sourceTree = "<group>"; };
 		ECDB61DEC33C7167212C42B3 /* Pods-FoodTruck-FoodTruckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTruck-FoodTruckUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodTruck-FoodTruckUITests/Pods-FoodTruck-FoodTruckUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +237,7 @@
 				114A049C249EBEC300F22F8F /* Diner View Controllers */,
 				114A048D249D94CA00F22F8F /* Log In Views Controllers */,
 				E125BEA7249C5085001FF823 /* Model */,
+				E11EA292249C6DB200ABD735 /* Model Contollers  */,
 				E125BEAE249C5668001FF823 /* Storyboard */,
 				E125BEA6249C4D18001FF823 /* Application */,
 				11E98360249B01A5001288C5 /* ViewController.swift */,
@@ -276,6 +287,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E11EA292249C6DB200ABD735 /* Model Contollers  */ = {
+			isa = PBXGroup;
+			children = (
+				E192DBEB249CEE4A0076AFE6 /* UserController.swift */,
+			);
+			path = "Model Contollers ";
+			sourceTree = "<group>";
+		};
 		E125BEA6249C4D18001FF823 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +313,8 @@
 				1100E40724A2E660009D1A1D /* Truck Model */,
 				1100E41624A2E6BC009D1A1D /* FoodTruck.xcdatamodeld */,
 				E125BEAC249C53CA001FF823 /* CoreDataStack.swift */,
+				E19208AC24A1B6790055517E /* Operator Model  */,
+				E19C3C6024A1A72B0092878F /* Diner Model */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +328,24 @@
 				114A0494249DA2C300F22F8F /* Diner.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E19208AC24A1B6790055517E /* Operator Model  */ = {
+			isa = PBXGroup;
+			children = (
+				E19208AD24A1B6C70055517E /* OperatorRepresentation.swift */,
+				E19208AF24A1B7EE0055517E /* Diner+Convenience.swift */,
+			);
+			path = "Operator Model ";
+			sourceTree = "<group>";
+		};
+		E19C3C6024A1A72B0092878F /* Diner Model */ = {
+			isa = PBXGroup;
+			children = (
+				E19C3C5C24A1A3AF0092878F /* DinerRepresentation.swift */,
+				E19C3C5E24A1A4460092878F /* Diner+Convenience.swift */,
+			);
+			path = "Diner Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -543,6 +582,8 @@
 				114A04A3249ED52F00F22F8F /* OperatorViewController.swift in Sources */,
 				1100E41824A2E6BC009D1A1D /* FoodTruck.xcdatamodeld in Sources */,
 				1100E41424A2E699009D1A1D /* Diner+Convenience.swift in Sources */,
+				E192DBEC249CEE4A0076AFE6 /* UserController.swift in Sources */,
+				E19C3C5D24A1A3AF0092878F /* DinerRepresentation.swift in Sources */,
 				E125BEAD249C53CA001FF823 /* CoreDataStack.swift in Sources */,
 				1100E40F24A2E687009D1A1D /* OperatorRepresentation.swift in Sources */,
 				1100E40B24A2E677009D1A1D /* TruckRepresentation.swift in Sources */,
@@ -552,6 +593,10 @@
 				1100E40024A19C31009D1A1D /* SearchFoodTruckTableViewController.swift in Sources */,
 				11E9835F249B01A5001288C5 /* SceneDelegate.swift in Sources */,
 				1100E40424A19C7D009D1A1D /* FoodTruckDetailViewController.swift in Sources */,
+				11E98367249B01A5001288C5 /* FoodTruck.xcdatamodeld in Sources */,
+				E19C3C5F24A1A4460092878F /* Diner+Convenience.swift in Sources */,
+				E19208B024A1B7EE0055517E /* Diner+Convenience.swift in Sources */,
+				E19208AE24A1B6C70055517E /* OperatorRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
