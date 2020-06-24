@@ -7,3 +7,38 @@
 //
 
 import Foundation
+import CoreData
+
+extension Truck {
+
+    // Computed property to get representation of a Task
+    var truckRepresentation: TruckRepresentation? {
+        return TruckRepresentation(cuisineType: cuisineType,
+                                  imageOfTruck: imageOfTruck,
+                                  customerRatings: customerRatings,
+                                  customerRatingAvg: customerRatingAvg)
+    }
+
+    @discardableResult convenience init(cuisineType: String?,
+                                        imageOfTruck: String?,
+                                        customerRatings: Double,
+                                        customerRatingAvg: Double,
+                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
+        self.cuisineType = cuisineType
+        self.customerRatings = customerRatings
+        self.customerRatings = customerRatings
+        self.customerRatingAvg = customerRatingAvg
+    }
+
+
+    // Initializer to convert representation into Task
+    @discardableResult convenience init?(truckRepresentation: TruckRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+
+        self.init(cuisineType: truckRepresentation.cuisineType,
+                  imageOfTruck: truckRepresentation.imageOfTruck,
+                  customerRatings: truckRepresentation.customerRatings,
+                  customerRatingAvg: truckRepresentation.customerRatingAvg,
+                  context: context)
+    }
+}

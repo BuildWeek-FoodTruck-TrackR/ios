@@ -21,27 +21,31 @@ extension Menu {
                                   customerRatingAvg: customerRatingAvg)
     }
 
-    @discardableResult convenience init(identifier: UUID = UUID(),
-                                        itemPrice: String,
-                                        itemPhotos: String,
+    @discardableResult convenience init(itemPrice: Double,
+                                        itemPhotos: String?,
                                         itemName: String?,
+                                        itemDescription: String?,
+                                        customerRatings: Double,
+                                        customerRatingAvg: Double,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.itemPrice = itemPrice
         self.itemPhotos = itemPhotos
-        self.password = password
-        self.trucksOwned = trucksOwned
+        self.itemDescription = itemDescription
+        self.customerRatings = customerRatings
+        self.customerRatingAvg = customerRatingAvg
     }
 
 
     // Initializer to convert representation into Task
     @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        guard let identifier = UUID(uuidString: menuRepresentation.identifier) else { return nil }
 
-        self.init(identifier: identifier,
-                  itemPrice: menuRepresentation.itemPrice,
+        self.init(itemPrice: menuRepresentation.itemPrice,
                   itemPhotos: menuRepresentation.itemPhotos,
-                  trucksOwned: menuRepresentation.trucksOwned,
+                  itemName: menuRepresentation.itemName,
+                  itemDescription: menuRepresentation.itemDescription,
+                  customerRatings: menuRepresentation.customerRatings,
+                  customerRatingAvg: menuRepresentation.customerRatingAvg,
                   context: context)
     }
 }

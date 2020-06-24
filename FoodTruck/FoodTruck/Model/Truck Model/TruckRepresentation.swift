@@ -9,8 +9,8 @@
 import Foundation
 
 struct TruckRepresentation: Codable {
-    var cuisineType: String
-    var imageOfTruck: String
+    var cuisineType: String?
+    var imageOfTruck: String?
     var customerRatings: Double
     var customerRatingAvg: Double
 }

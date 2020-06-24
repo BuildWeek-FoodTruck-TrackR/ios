@@ -10,9 +10,9 @@ import Foundation
 
 struct MenuRepresentation: Codable {
     var itemPrice: Double
-    var itemPhotos: String
-    var itemName: String
-    var itemDescription: String
+    var itemPhotos: String?
+    var itemName: String?
+    var itemDescription: String?
     var customerRatings: Double
     var customerRatingAvg: Double
 }
