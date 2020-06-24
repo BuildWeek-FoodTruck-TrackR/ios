@@ -1,5 +1,5 @@
 //
-//  MenuRepresentation.swift
+//  TruckRepresentation.swift
 //  FoodTruck
 //
 //  Created by Sammy Alvarado on 6/23/20.
@@ -8,11 +8,9 @@
 
 import Foundation
 
-struct MenuRepresentation: Codable {
-    var itemPrice: Double
-    var itemPhotos: String?
-    var itemName: String?
-    var itemDescription: String?
+struct TruckRepresentation: Codable {
+    var cuisineType: String
+    var imageOfTruck: String
     var customerRatings: Double
     var customerRatingAvg: Double
 }

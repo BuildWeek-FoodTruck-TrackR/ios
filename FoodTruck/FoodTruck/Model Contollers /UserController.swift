@@ -51,9 +51,9 @@ class UserController {
             }
 
             do {
-                let userRepresentations = Array(try JSONDecoder().decode([String : UserRepresentation].self, from: data).values)
+                let dinerRepresentations = Array(try JSONDecoder().decode([String : DinerRepresentation].self, from: data).values)
 
-                try self.updateTasks(with: userRepresentations)
+                try self.updateTasks(with: dinerRepresentations)
                 DispatchQueue.main.async {
                     completion(.success(true))
                 }
@@ -69,27 +69,27 @@ class UserController {
 
 
     // Send Task Representation to Firebase!
-    func sendTaskToServer(user: User, completion: @escaping CompletionHandler = { _ in }) {
+    func sendTaskToServer(diner: Diner, completion: @escaping CompletionHandler = { _ in }) {
 
-//        guard let uuid = task.identifier else {
-//            completion(.failure(.noIdentifier))
-//            return
-//        }
+        guard let uuid = diner.identifier else {
+            completion(.failure(.noIdentifier))
+            return
+        }
 
         // https://tasks-3f211.firebaseio.com/[unique identifier here].json
-        let requestURL = baseURL.appendingPathExtension("json")  // .appendingPathComponent(uuid.uuidString)
+        let requestURL = baseURL.appendingPathExtension("json").appendingPathComponent(uuid.uuidString)
 
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
 
         do {
-            guard let representation = user.userRepresentation else {
+            guard let representation = diner.dinerRepresentation else {
                 completion(.failure(.noRep))
                 return
             }
             request.httpBody = try JSONEncoder().encode(representation)
         } catch {
-            print("Error encoding task \(user): \(error)")
+            print("Error encoding task \(diner): \(error)")
             completion(.failure(.noEncode))
             return
         }
@@ -110,7 +110,7 @@ class UserController {
     }
 
     // Update/Create Tasks with Representations
-    private func updateTasks(with representations: [UserRepresentation]) throws {
+    private func updateTasks(with representations: [DinerRepresentation]) throws {
         let context = CoreDataStack.shared.container.newBackgroundContext()
         // Array of UUIDs
         let identifiersToFetch = representations.compactMap({ UUID(uuidString: $0.identifier )})
@@ -118,23 +118,23 @@ class UserController {
         let representationsByID = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
         var tasksToCreate = representationsByID
 
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let fetchRequest: NSFetchRequest<Diner> = Diner.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
         context.perform {
             do {
-                let existingTasks = try context.fetch(fetchRequest)
+                let existingDiners = try context.fetch(fetchRequest)
 
 //                 For already existing tasks
-                for task in existingTasks {
-                    guard let id = User.identifier,
+                for diner in existingDiners {
+                    guard let id = diner.identifier,
                         let representation = representationsByID[id] else { continue }
-                    self.update(task: task, with: representation)
+                    self.update(diner: diner, with: representation)
                     tasksToCreate.removeValue(forKey: id)
                 }
 
                 // For new tasks
                 for representation in tasksToCreate.values {
-                    Task(userRepresentation: representation, context: context)
+                    Diner(dinerRepresentation: representation, context: context)
                 }
             } catch {
                 print("error fetching tasks for UUIDs: \(error)")
@@ -149,19 +149,19 @@ class UserController {
 
     }
 
-    private func update(user: User, with representation: UserRepresentation) {
-        user.username = representation.username
-        user.password = representation.password
+    private func update(diner: Diner, with representation: DinerRepresentation) {
+        diner.username = representation.username
+        diner.password = representation.password
     }
 
 
-    func deleteTaskFromServer(_ user: User, completion: @escaping CompletionHandler = { _ in }) {
-//        guard let uuid = task.identifier else {
-//            completion(.failure(.noIdentifier))
-//            return
-//        }
+    func deleteTaskFromServer(_ diner: Diner, completion: @escaping CompletionHandler = { _ in }) {
+        guard let uuid = diner.identifier else {
+            completion(.failure(.noIdentifier))
+            return
+        }
 
-        let requestURL = baseURL.appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "DELETE"
 
