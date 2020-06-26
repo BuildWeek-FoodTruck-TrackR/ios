@@ -107,6 +107,10 @@
                         <viewLayoutGuide key="safeArea" id="6HB-zC-Z0a"/>
                     </view>
                     <navigationItem key="navigationItem" id="asg-uA-85R"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="pfw-hP-c1w" id="8ci-Qd-WFF"/>
+                        <outlet property="passwordTextField" destination="kbU-67-Qy6" id="FUM-oM-5Tb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ry-gf-3d1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,6 +187,8 @@
                     <navigationItem key="navigationItem" id="Otx-jV-OpI"/>
                     <connections>
                         <outlet property="continueButton" destination="er7-dg-IqQ" id="qkV-kt-PmJ"/>
+                        <outlet property="emailTextField" destination="Q3u-o1-hBN" id="tJO-yd-Xtf"/>
+                        <outlet property="passwordTextField" destination="V6b-Yh-dGZ" id="kOj-fh-cyH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -268,5 +274,3 @@
         <segue reference="ZFX-4v-Oel"/>
     </inferredMetricsTieBreakers>
 </document>
-
-

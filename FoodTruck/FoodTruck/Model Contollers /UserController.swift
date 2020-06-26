@@ -153,7 +153,6 @@ class UserController {
         diner.password = representation.password
     }
 
-
     func deleteTaskFromServer(_ diner: Diner, completion: @escaping CompletionHandler = { _ in }) {
         guard let uuid = diner.identifier else {
             completion(.failure(.noIdentifier))
