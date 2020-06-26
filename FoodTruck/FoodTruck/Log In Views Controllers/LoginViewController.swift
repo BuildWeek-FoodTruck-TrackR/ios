@@ -10,23 +10,22 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-//    var user: User? {
-//        didSet {
-//            updateViews()
-//        }
-//    }
+    var showPassword: Bool = false
+    var firebaseController = FirebaseController()
+    var userController = UserController()
 
     // MARK: - Outlets
-
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view.
     //        passwordField?.setup()
         }
 
-    func updateViews() {
-    }
-
     @IBAction func continueButtonTapped(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else { return }
+        }
     }
-}

@@ -9,19 +9,40 @@
 import UIKit
 
 class SignInViewController: UIViewController {
+    var userController: UserController?
+    var firebaseController = FirebaseController()
+    var selectedAccountType: SignUpType? {
+        didSet {
+            guard isViewLoaded else { return }
+        }
+    }
+    var diner: Diner?
 
     // MARK: - Outlets
     @IBOutlet var continueButton: UIButton!
-    
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
     @IBAction func continueButtonTapped(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+        let password = passwordTextField.text else { return }
+
+        if let accountType = selectedAccountType {
+            switch accountType {
+            case .diner:
+                userController?.sendTaskToServer(diner: diner ?? Diner())
+            case .operatoR:
+                userController?.fetchTasksFromServer()
+            }
+        }
     }
-    
+
     /*
     // MARK: - Navigation
 
