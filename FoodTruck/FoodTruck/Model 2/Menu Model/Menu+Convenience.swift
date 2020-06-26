@@ -21,31 +21,27 @@ extension Menu {
                                   customerRatingAvg: customerRatingAvg)
     }
 
-    @discardableResult convenience init(itemPrice: Double,
-                                        itemPhotos: String?,
+    @discardableResult convenience init(identifier: UUID = UUID(),
+                                        itemPrice: String,
+                                        itemPhotos: String,
                                         itemName: String?,
-                                        itemDescription: String?,
-                                        customerRatings: Double,
-                                        customerRatingAvg: Double,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.itemPrice = itemPrice
         self.itemPhotos = itemPhotos
-        self.itemDescription = itemDescription
-        self.customerRatings = customerRatings
-        self.customerRatingAvg = customerRatingAvg
+        self.password = password
+        self.trucksOwned = trucksOwned
     }
 
 
-//     Initializer to convert representation into Task
+    // Initializer to convert representation into Task
     @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        guard let identifier = UUID(uuidString: menuRepresentation.identifier) else { return nil }
 
-        self.init(itemPrice: menuRepresentation.itemPrice,
+        self.init(identifier: identifier,
+                  itemPrice: menuRepresentation.itemPrice,
                   itemPhotos: menuRepresentation.itemPhotos,
-                  itemName: menuRepresentation.itemName,
-                  itemDescription: menuRepresentation.itemDescription,
-                  customerRatings: menuRepresentation.customerRatings,
-                  customerRatingAvg: menuRepresentation.customerRatingAvg,
+                  trucksOwned: menuRepresentation.trucksOwned,
                   context: context)
     }
 }
