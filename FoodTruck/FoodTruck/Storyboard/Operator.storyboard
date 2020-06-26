@@ -10,7 +10,7 @@
         <!--Truck Set Up-->
         <scene sceneID="MrB-eC-6WL">
             <objects>
-                <viewController id="OT1-fS-Aes" sceneMemberID="viewController">
+                <viewController id="OT1-fS-Aes" customClass="OperatorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XBM-Gb-rI3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,6 +148,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Set up menu"/>
                                         <connections>
+                                            <action selector="setUpMenu:" destination="OT1-fS-Aes" eventType="touchUpInside" id="xm8-PE-DiM"/>
                                             <segue destination="0vt-Gj-YqT" kind="show" identifier="SetUpMenuSegue" id="4Dg-S0-afj"/>
                                         </connections>
                                     </button>
@@ -167,6 +168,15 @@
                         <viewLayoutGuide key="safeArea" id="z4B-KU-64k"/>
                     </view>
                     <navigationItem key="navigationItem" title="Truck Set Up" id="9Xq-nk-Nlt"/>
+                    <connections>
+                        <outlet property="contactInfoTextField" destination="BKR-su-qFp" id="akR-Zi-xEU"/>
+                        <outlet property="foodTypeTextField" destination="KyN-uE-dvJ" id="CFG-z3-Cn7"/>
+                        <outlet property="hoursTextField" destination="gn6-Yw-ghj" id="Dgc-N8-0i9"/>
+                        <outlet property="imageURLTextField" destination="x1q-by-I0c" id="Y9i-mN-YJp"/>
+                        <outlet property="locationTextField" destination="cAo-wa-xOZ" id="Et3-3g-TQu"/>
+                        <outlet property="truckImageView" destination="2Pv-jr-3By" id="pMD-yx-brM"/>
+                        <outlet property="truckNameTextField" destination="iIu-8D-2no" id="hUc-AK-xqh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsa-Ld-nVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,18 +185,43 @@
         <!--Set up menu-->
         <scene sceneID="izb-DB-goB">
             <objects>
-                <viewController id="0vt-Gj-YqT" sceneMemberID="viewController">
+                <viewController id="0vt-Gj-YqT" customClass="MenuViewController" customModule="FoodTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2hn-kg-2lq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EXO-3N-gSs">
+                                <rect key="frame" x="20" y="203" width="374" height="233"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aeh-Ob-vrw">
+                                <rect key="frame" x="20" y="480" width="374" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="8Bl-v5-D4b"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Set up menu" id="6v7-0t-jKC"/>
+                    <navigationItem key="navigationItem" title="Set up menu" id="6v7-0t-jKC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="bxM-Ch-qnA">
+                            <connections>
+                                <action selector="saveButton:" destination="0vt-Gj-YqT" id="443-3l-KlF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="foodImageView" destination="EXO-3N-gSs" id="j59-1L-oKg"/>
+                        <outlet property="menuTextView" destination="aeh-Ob-vrw" id="yty-wx-glP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1N-s7-AHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="113"/>
+            <point key="canvasLocation" x="1485.5072463768117" y="112.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MZc-de-QaT">

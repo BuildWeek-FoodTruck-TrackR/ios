@@ -1,15 +1,15 @@
 //
-//  UserController.swift
+//  OperatorController.swift
 //  FoodTruck
 //
-//  Created by Sammy Alvarado on 6/19/20.
+//  Created by Sammy Alvarado on 6/25/20.
 //  Copyright © 2020 Kevin Stewart. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-enum userNetworkError: Error {
+enum operatorNetworkError: Error {
     case noIdentifier
     case otherError
     case noData
@@ -18,11 +18,11 @@ enum userNetworkError: Error {
     case noRep
 }
 
-let baseURL = URL(string: "https://foodtruck-71a6c.firebaseio.com/")!
+let baseURL1 = URL(string: "https://foodtruck-71a6c.firebaseio.com/")!
 
-class UserController {
+class OperatorController {
 
-    typealias CompletionHandler = (Result<Bool, userNetworkError>) -> Void
+    typealias CompletionHandler = (Result<Bool, operatorNetworkError>) -> Void
 
     init() {
         fetchTasksFromServer()
@@ -30,7 +30,7 @@ class UserController {
 
     // Fetch Tasks from firebase
     func fetchTasksFromServer(completion: @escaping CompletionHandler = { _ in }) {
-        let requestURL = baseURL.appendingPathExtension("json")
+        let requestURL = baseURL1.appendingPathExtension("json")
 
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             if let error = error {
@@ -51,9 +51,9 @@ class UserController {
             }
 
             do {
-                let dinerRepresentations = Array(try JSONDecoder().decode([String : DinerRepresentation].self, from: data).values)
+                let operatorRepresentations = Array(try JSONDecoder().decode([String : OperatorRepresentation].self, from: data).values)
 
-                try self.updateDiner(with: dinerRepresentations)
+                try self.updateOperator(with: operatorRepresentations)
                 DispatchQueue.main.async {
                     completion(.success(true))
                 }
@@ -67,28 +67,29 @@ class UserController {
         }.resume()
     }
 
-    // Send Diner Representation to Firebase!
-    func sendTaskToServer(diner: Diner, completion: @escaping CompletionHandler = { _ in }) {
 
-        guard let uuid = diner.identifier else {
+    // Send Task Representation to Firebase!
+    func sendTaskToServer(operatoR: Operator, completion: @escaping CompletionHandler = { _ in }) {
+
+        guard let uuid = operatoR.identifier else {
             completion(.failure(.noIdentifier))
             return
         }
 
         // https://tasks-3f211.firebaseio.com/[unique identifier here].json
-        let requestURL = baseURL.appendingPathExtension("json").appendingPathComponent(uuid.uuidString)
+        let requestURL = baseURL.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
 
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
 
         do {
-            guard let representation = diner.dinerRepresentation else {
+            guard let representation = operatoR.operatorRepresentation else {
                 completion(.failure(.noRep))
                 return
             }
             request.httpBody = try JSONEncoder().encode(representation)
         } catch {
-            print("Error encoding task \(diner): \(error)")
+            print("Error encoding task \(operatoR): \(error)")
             completion(.failure(.noEncode))
             return
         }
@@ -108,32 +109,32 @@ class UserController {
         }.resume()
     }
 
-    // Update/Create Diner with Representations
-    private func updateDiner(with representations: [DinerRepresentation]) throws {
+    // Update/Create Tasks with Representations
+    private func updateOperator(with representations: [OperatorRepresentation]) throws {
         let context = CoreDataStack.shared.container.newBackgroundContext()
         // Array of UUIDs
         let identifiersToFetch = representations.compactMap({ UUID(uuidString: $0.identifier )})
 
         let representationsByID = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
-        var createDiner = representationsByID
+        var tasksToCreate = representationsByID
 
-        let fetchRequest: NSFetchRequest<Diner> = Diner.fetchRequest()
+        let fetchRequest: NSFetchRequest<Operator> = Operator.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
         context.perform {
             do {
-                let existingDiners = try context.fetch(fetchRequest)
+                let existingTasks = try context.fetch(fetchRequest)
 
-//                 For existing diner
-                for diner in existingDiners {
-                    guard let id = diner.identifier,
+                // For already existing tasks
+                for operators in existingTasks {
+                    guard let id = operators.identifier,
                         let representation = representationsByID[id] else { continue }
-                    self.update(diner: diner, with: representation)
-                    createDiner.removeValue(forKey: id)
+                    self.update(operators: operators, with: representation)
+                    tasksToCreate.removeValue(forKey: id)
                 }
 
-                // For new diner
-                for representation in createDiner.values {
-                    Diner(dinerRepresentation: representation, context: context)
+                // For new tasks
+                for representation in tasksToCreate.values {
+                    Operator(operatorRepresentation: representation, context: context)
                 }
             } catch {
                 print("error fetching tasks for UUIDs: \(error)")
@@ -148,14 +149,15 @@ class UserController {
 
     }
 
-    private func update(diner: Diner, with representation: DinerRepresentation) {
-        diner.username = representation.username
-        diner.password = representation.password
+    private func update(operators: Operator, with representation: OperatorRepresentation) {
+        operators.username = representation.username
+        operators.password = representation.password
+//        operators.trucksOwned = representation.trucksOwned
     }
 
 
-    func deleteDinerFromServer(_ diner: Diner, completion: @escaping CompletionHandler = { _ in }) {
-        guard let uuid = diner.identifier else {
+    func deleteTaskFromServer(_ operators: Operator, completion: @escaping CompletionHandler = { _ in }) {
+        guard let uuid = operators.identifier else {
             completion(.failure(.noIdentifier))
             return
         }
@@ -170,4 +172,3 @@ class UserController {
         }.resume()
     }
 }
-
