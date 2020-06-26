@@ -23,9 +23,9 @@ extension Menu {
 
     @discardableResult convenience init(identifier: UUID = UUID(),
                                         itemPrice: Double,
-                                        itemPhotos: String,
+                                        itemPhotos: String?,
                                         itemName: String?,
-                                        itemDescription: String,
+                                        itemDescription: String?,
                                         customerRatings: Double,
                                         customerRatingAvg: Double,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
@@ -39,12 +39,15 @@ extension Menu {
     }
 
 
-    // Initializer to convert representation into Task
-//    @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-//
-//        self.init(itemPrice: menuRepresentation.itemPrice,
-//                  itemPhotos: menuRepresentation.itemPhotos,
-//                  trucksOwned: menuRepresentation.trucksOwned,
-//                  context: context)
-//    }
+//     Initializer to convert representation into Task
+    @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+
+        self.init(itemPrice: menuRepresentation.itemPrice,
+                  itemPhotos: menuRepresentation.itemPhotos,
+                  itemName: menuRepresentation.itemName,
+                  itemDescription: menuRepresentation.itemDescription,
+                  customerRatings: menuRepresentation.customerRatings,
+                  customerRatingAvg: menuRepresentation.customerRatingAvg,
+                  context: context)
+    }
 }
