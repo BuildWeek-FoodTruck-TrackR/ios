@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class OperatorViewController: UIViewController {
-
     // MARK: - Outlets
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
@@ -21,56 +20,56 @@ class OperatorViewController: UIViewController {
     @IBOutlet var saveButton: UIBarButtonItem!
 
     // MARK: - Properties
-    var truckRep: TruckRepresentation? {
+    var truck: Truck? {
         didSet {
             updateViews()
         }
     }
-
     var apiController: APIController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
     }
-
     func updateViews() {
         guard isViewLoaded else { return }
-        nameTextField.text = truckRep?.name
-        typeTextField.text = truckRep?.cuisineType
-        hoursTextField.text = truckRep?.hrsOfOps
-        contactInfoTextField.text = truckRep?.contactInfo
-        locationTextField.text = truckRep?.location
-        menuTextView.text = truckRep?.menu
+        truck?.name = nameTextField.text
+        truck?.cuisineType = typeTextField.text
+        truck?.hrsOfOps = hoursTextField.text
+        truck?.contactInfo = contactInfoTextField.text
+        truck?.location = locationTextField.text
+        truck?.menu = menuTextView.text
+        title = truck?.name ?? "Create a truck"
     }
-
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let name = nameTextField.text,
             !name.isEmpty,
-            let cuisingType = typeTextField.text,
+                       let cuisingType = typeTextField.text,
             !cuisingType.isEmpty,
-            let hrsOfOps = hoursTextField.text,
+                       let hrsOfOps = hoursTextField.text,
             !hrsOfOps.isEmpty,
-            let contactInfo = contactInfoTextField.text,
+                       let contactInfo = contactInfoTextField.text,
             !contactInfo.isEmpty,
-            let location = locationTextField.text,
+                       let location = locationTextField.text,
             !location.isEmpty,
-            let menu = menuTextView.text,
-            !menu.isEmpty,
-            let apiController = apiController else { return }
-        
-        let truck = Truck(cuisineType: cuisingType,
-                          name: name,
-                          hrsOfOps: hrsOfOps,
-                          contactInfo: contactInfo,
-                          location: location,
-                          menu: menu)
-        apiController.sendTruckToServer(truck: truck)
+                       let menu = menuTextView.text,
+            !menu.isEmpty else { return }
 
-        do {
-            try CoreDataStack.shared.mainContext.save()
-        } catch {
-            print("Error saving truck to moc: \(error)")
+            let newTruck = Truck(cuisineType: cuisingType,
+                                 name: name,
+                                 hrsOfOps: hrsOfOps,
+                                 contactInfo: contactInfo,
+                                 location: location,
+                                 menu: menu,
+                                 identifier: UUID())
+        apiController?.sendTruckToServer(truck: newTruck)
+            print("Truck sent to server")
+                       do {
+                           try CoreDataStack.shared.mainContext.save()
+                        print("Truck saved in core data")
+                       } catch {
+                           print("Error saving truck to moc: \(error)")
+            }
+            return
         }
     }
-}

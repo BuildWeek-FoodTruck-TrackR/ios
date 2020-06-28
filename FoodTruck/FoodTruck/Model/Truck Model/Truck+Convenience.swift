@@ -31,9 +31,9 @@ extension Truck {
         self.customerRatingAvg = customerRatingAvg
     }
 
-
 //     Initializer to convert representation into Task
-    @discardableResult convenience init?(truckRepresentation: TruckRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init?(truckRepresentation: TruckRepresentation,
+                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
 
         self.init(cuisineType: truckRepresentation.cuisineType,
                   imageOfTruck: truckRepresentation.imageOfTruck,

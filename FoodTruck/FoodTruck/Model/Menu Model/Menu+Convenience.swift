@@ -38,9 +38,9 @@ extension Menu {
         self.customerRatingAvg = customerRatingAvg
     }
 
-
 //     Initializer to convert representation into Task
-    @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init?(menuRepresentation: MenuRepresentation,
+                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
 
         self.init(itemPrice: menuRepresentation.itemPrice,
                   itemPhotos: menuRepresentation.itemPhotos,

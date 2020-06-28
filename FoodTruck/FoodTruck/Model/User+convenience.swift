@@ -20,7 +20,7 @@ extension User {
 
     @discardableResult convenience init(username: String,
                                         password: String,
-                                        id: UUID = UUID(),
+                                        identifier: UUID = UUID(),
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.username = username
@@ -29,14 +29,14 @@ extension User {
     }
 
     @discardableResult
-    convenience init?(userRep:                                         UserRep,
+    convenience init?(userRep: UserRep,
                       context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         guard let idString = userRep.identifier,
-            let id = UUID(uuidString: idString) else { return nil }
+            let identifier = UUID(uuidString: idString) else { return nil }
 
         self.init(username: userRep.username,
                   password: userRep.password,
-                  id: id,
+                  identifier: identifier,
                   context: context)
     }
 }

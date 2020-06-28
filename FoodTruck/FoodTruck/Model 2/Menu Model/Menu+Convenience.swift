@@ -33,9 +33,9 @@ extension Menu {
         self.trucksOwned = trucksOwned
     }
 
-
     // Initializer to convert representation into Task
-    @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init?(menuRepresentation: MenuRepresentation,
+                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         guard let identifier = UUID(uuidString: menuRepresentation.identifier) else { return nil }
 
         self.init(identifier: identifier,

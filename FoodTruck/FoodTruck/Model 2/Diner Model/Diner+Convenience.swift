@@ -34,9 +34,9 @@ extension Diner {
         self.favoriteTrucks = favoriteTrucks
     }
 
-
     // Initializer to convert representation into Task
-    @discardableResult convenience init?(dinerRepresentation: DinerRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init?(dinerRepresentation: DinerRepresentation,
+                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         guard let identifier = UUID(uuidString: dinerRepresentation.identifier) else { return nil }
 
         self.init(identifier: identifier,

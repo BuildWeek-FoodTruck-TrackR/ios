@@ -34,9 +34,9 @@ extension Operator {
         self.trucksOwned = trucksOwned
     }
 
-
     // Initializer to convert representation into Task
-    @discardableResult convenience init?(operatorRepresentation: OperatorRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init?(operatorRepresentation: OperatorRepresentation,
+                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         guard let identifier = UUID(uuidString: operatorRepresentation.identifier) else { return nil }
 
         self.init(identifier: identifier,

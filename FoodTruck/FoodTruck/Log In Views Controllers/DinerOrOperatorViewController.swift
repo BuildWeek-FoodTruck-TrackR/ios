@@ -20,8 +20,6 @@ class DinerOrOperatorViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-            performSegue(withIdentifier: "LoginViewModalSegue",
-                         sender: self)
     }
 
     // MARK: - Navigation

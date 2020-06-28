@@ -13,17 +13,25 @@ enum LoginType {
     case logIn
 }
 
+enum DinerOrOperator {
+    case diner
+    case operatoR
+}
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     var showPassword: Bool = false
-    var apiController: APIController?
+    var apiController = APIController()
     var loginType = LoginType.signUp
+    var dinerOrOperator = DinerOrOperator.diner
 
     // MARK: - Outlets
+    @IBOutlet var dinerOrOperatorSegmentedControl: UISegmentedControl!
     @IBOutlet var logInTypeSegmentedControl: UISegmentedControl!
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet private weak var signUpButton: UIButton!
+    @IBOutlet var signUpButton: UIButton!
+    
         override func viewDidLoad() {
             super.viewDidLoad()
                     signUpButton.backgroundColor = UIColor(hue: 190/360,
@@ -34,8 +42,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             signUpButton.layer.cornerRadius = 8.0
         }
 
-    @IBAction func signUpnButtonTapped(_ sender: UIButton) {
-        guard let apiController = apiController else { return }
+    @IBAction func buttonTapped(_ sender: UIButton) {
         if let username = usernameTextField.text,
             !username.isEmpty,
             let password = passwordTextField.text,
@@ -68,14 +75,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         print("Error occurred during sign up: \(error)")
                     } else {
                         DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
+                            print("Index is: \(self.dinerOrOperatorSegmentedControl.selectedSegmentIndex)")
+                            if self.dinerOrOperatorSegmentedControl.selectedSegmentIndex == 0 {
+                                self.performSegue(withIdentifier: "DinerSegue", sender: self)
+                                return
+                            } else {
+                                self.performSegue(withIdentifier: "OperatorTableViewSegue", sender: self)
+                                return
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
+    }
+    
     @IBAction func signInTypeHasChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             loginType = .signUp
